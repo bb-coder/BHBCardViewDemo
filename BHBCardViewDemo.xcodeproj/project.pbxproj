@@ -1,0 +1,572 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F70699351BF5C73F0083FB9C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F70699341BF5C73F0083FB9C /* main.m */; };
+		F70699381BF5C73F0083FB9C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F70699371BF5C73F0083FB9C /* AppDelegate.m */; };
+		F70699401BF5C73F0083FB9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F706993F1BF5C73F0083FB9C /* Assets.xcassets */; };
+		F70699431BF5C73F0083FB9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F70699411BF5C73F0083FB9C /* LaunchScreen.storyboard */; };
+		F706994E1BF5C73F0083FB9C /* BHBCardViewDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F706994D1BF5C73F0083FB9C /* BHBCardViewDemoTests.m */; };
+		F70699591BF5C73F0083FB9C /* BHBCardViewDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F70699581BF5C73F0083FB9C /* BHBCardViewDemoUITests.m */; };
+		F706996A1BF5D3270083FB9C /* BHBCardSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = F70699691BF5D3270083FB9C /* BHBCardSegmentView.m */; };
+		F706996D1BF6E1A20083FB9C /* BHBCardSegmentItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F706996C1BF6E1A20083FB9C /* BHBCardSegmentItem.m */; };
+		F70699701BF6F1E20083FB9C /* BHBCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = F706996F1BF6F1E20083FB9C /* BHBCardView.m */; };
+		F70699731BF983D50083FB9C /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F70699721BF983D50083FB9C /* TableViewController.m */; };
+		F70699761BF983F00083FB9C /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F70699751BF983F00083FB9C /* ImageViewController.m */; };
+		F767E9101BFCAE0C00D0723D /* AnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F767E90F1BFCAE0C00D0723D /* AnimationController.m */; };
+		F767E9131BFCAE3E00D0723D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F767E9121BFCAE3E00D0723D /* ViewController.m */; };
+		F7A8CAED1BFC114F00EDBC83 /* BHBCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A8CAEC1BFC114F00EDBC83 /* BHBCardViewController.m */; };
+		F7A8CAF81BFC723900EDBC83 /* NomalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A8CAEF1BFC117600EDBC83 /* NomalViewController.m */; };
+		F7A8CAF91BFC724500EDBC83 /* BHBCardHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A8CAF51BFC687C00EDBC83 /* BHBCardHeaderView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F706994A1BF5C73F0083FB9C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F70699281BF5C73F0083FB9C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F706992F1BF5C73F0083FB9C;
+			remoteInfo = BHBCardViewDemo;
+		};
+		F70699551BF5C73F0083FB9C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F70699281BF5C73F0083FB9C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F706992F1BF5C73F0083FB9C;
+			remoteInfo = BHBCardViewDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F70699301BF5C73F0083FB9C /* BHBCardViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BHBCardViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F70699341BF5C73F0083FB9C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F70699361BF5C73F0083FB9C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F70699371BF5C73F0083FB9C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F706993F1BF5C73F0083FB9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F70699421BF5C73F0083FB9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F70699441BF5C73F0083FB9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F70699491BF5C73F0083FB9C /* BHBCardViewDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BHBCardViewDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F706994D1BF5C73F0083FB9C /* BHBCardViewDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BHBCardViewDemoTests.m; sourceTree = "<group>"; };
+		F706994F1BF5C73F0083FB9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F70699541BF5C73F0083FB9C /* BHBCardViewDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BHBCardViewDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F70699581BF5C73F0083FB9C /* BHBCardViewDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BHBCardViewDemoUITests.m; sourceTree = "<group>"; };
+		F706995A1BF5C73F0083FB9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F70699681BF5D3270083FB9C /* BHBCardSegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHBCardSegmentView.h; sourceTree = "<group>"; };
+		F70699691BF5D3270083FB9C /* BHBCardSegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHBCardSegmentView.m; sourceTree = "<group>"; };
+		F706996B1BF6E1A20083FB9C /* BHBCardSegmentItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHBCardSegmentItem.h; sourceTree = "<group>"; };
+		F706996C1BF6E1A20083FB9C /* BHBCardSegmentItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHBCardSegmentItem.m; sourceTree = "<group>"; };
+		F706996E1BF6F1E20083FB9C /* BHBCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHBCardView.h; sourceTree = "<group>"; };
+		F706996F1BF6F1E20083FB9C /* BHBCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHBCardView.m; sourceTree = "<group>"; };
+		F70699711BF983D50083FB9C /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		F70699721BF983D50083FB9C /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		F70699741BF983F00083FB9C /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
+		F70699751BF983F00083FB9C /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
+		F767E90E1BFCAE0C00D0723D /* AnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationController.h; sourceTree = "<group>"; };
+		F767E90F1BFCAE0C00D0723D /* AnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationController.m; sourceTree = "<group>"; };
+		F767E9111BFCAE3E00D0723D /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		F767E9121BFCAE3E00D0723D /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F7A8CAEB1BFC114F00EDBC83 /* BHBCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHBCardViewController.h; sourceTree = "<group>"; };
+		F7A8CAEC1BFC114F00EDBC83 /* BHBCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHBCardViewController.m; sourceTree = "<group>"; };
+		F7A8CAEE1BFC117600EDBC83 /* NomalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NomalViewController.h; sourceTree = "<group>"; };
+		F7A8CAEF1BFC117600EDBC83 /* NomalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NomalViewController.m; sourceTree = "<group>"; };
+		F7A8CAF41BFC687C00EDBC83 /* BHBCardHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHBCardHeaderView.h; sourceTree = "<group>"; };
+		F7A8CAF51BFC687C00EDBC83 /* BHBCardHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHBCardHeaderView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F706992D1BF5C73F0083FB9C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F70699461BF5C73F0083FB9C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F70699511BF5C73F0083FB9C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F70699271BF5C73F0083FB9C = {
+			isa = PBXGroup;
+			children = (
+				F70699321BF5C73F0083FB9C /* BHBCardViewDemo */,
+				F706994C1BF5C73F0083FB9C /* BHBCardViewDemoTests */,
+				F70699571BF5C73F0083FB9C /* BHBCardViewDemoUITests */,
+				F70699311BF5C73F0083FB9C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F70699311BF5C73F0083FB9C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F70699301BF5C73F0083FB9C /* BHBCardViewDemo.app */,
+				F70699491BF5C73F0083FB9C /* BHBCardViewDemoTests.xctest */,
+				F70699541BF5C73F0083FB9C /* BHBCardViewDemoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F70699321BF5C73F0083FB9C /* BHBCardViewDemo */ = {
+			isa = PBXGroup;
+			children = (
+				F70699671BF5CEFB0083FB9C /* BHBCardView */,
+				F70699361BF5C73F0083FB9C /* AppDelegate.h */,
+				F70699371BF5C73F0083FB9C /* AppDelegate.m */,
+				F767E9111BFCAE3E00D0723D /* ViewController.h */,
+				F767E9121BFCAE3E00D0723D /* ViewController.m */,
+				F7A8CAEE1BFC117600EDBC83 /* NomalViewController.h */,
+				F7A8CAEF1BFC117600EDBC83 /* NomalViewController.m */,
+				F767E90E1BFCAE0C00D0723D /* AnimationController.h */,
+				F767E90F1BFCAE0C00D0723D /* AnimationController.m */,
+				F70699711BF983D50083FB9C /* TableViewController.h */,
+				F70699721BF983D50083FB9C /* TableViewController.m */,
+				F70699741BF983F00083FB9C /* ImageViewController.h */,
+				F70699751BF983F00083FB9C /* ImageViewController.m */,
+				F706993F1BF5C73F0083FB9C /* Assets.xcassets */,
+				F70699411BF5C73F0083FB9C /* LaunchScreen.storyboard */,
+				F70699441BF5C73F0083FB9C /* Info.plist */,
+				F70699331BF5C73F0083FB9C /* Supporting Files */,
+			);
+			path = BHBCardViewDemo;
+			sourceTree = "<group>";
+		};
+		F70699331BF5C73F0083FB9C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F70699341BF5C73F0083FB9C /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F706994C1BF5C73F0083FB9C /* BHBCardViewDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				F706994D1BF5C73F0083FB9C /* BHBCardViewDemoTests.m */,
+				F706994F1BF5C73F0083FB9C /* Info.plist */,
+			);
+			path = BHBCardViewDemoTests;
+			sourceTree = "<group>";
+		};
+		F70699571BF5C73F0083FB9C /* BHBCardViewDemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F70699581BF5C73F0083FB9C /* BHBCardViewDemoUITests.m */,
+				F706995A1BF5C73F0083FB9C /* Info.plist */,
+			);
+			path = BHBCardViewDemoUITests;
+			sourceTree = "<group>";
+		};
+		F70699671BF5CEFB0083FB9C /* BHBCardView */ = {
+			isa = PBXGroup;
+			children = (
+				F70699681BF5D3270083FB9C /* BHBCardSegmentView.h */,
+				F70699691BF5D3270083FB9C /* BHBCardSegmentView.m */,
+				F706996B1BF6E1A20083FB9C /* BHBCardSegmentItem.h */,
+				F706996C1BF6E1A20083FB9C /* BHBCardSegmentItem.m */,
+				F7A8CAEB1BFC114F00EDBC83 /* BHBCardViewController.h */,
+				F7A8CAEC1BFC114F00EDBC83 /* BHBCardViewController.m */,
+				F706996E1BF6F1E20083FB9C /* BHBCardView.h */,
+				F706996F1BF6F1E20083FB9C /* BHBCardView.m */,
+				F7A8CAF41BFC687C00EDBC83 /* BHBCardHeaderView.h */,
+				F7A8CAF51BFC687C00EDBC83 /* BHBCardHeaderView.m */,
+			);
+			path = BHBCardView;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F706992F1BF5C73F0083FB9C /* BHBCardViewDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F706995D1BF5C73F0083FB9C /* Build configuration list for PBXNativeTarget "BHBCardViewDemo" */;
+			buildPhases = (
+				F706992C1BF5C73F0083FB9C /* Sources */,
+				F706992D1BF5C73F0083FB9C /* Frameworks */,
+				F706992E1BF5C73F0083FB9C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BHBCardViewDemo;
+			productName = BHBCardViewDemo;
+			productReference = F70699301BF5C73F0083FB9C /* BHBCardViewDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F70699481BF5C73F0083FB9C /* BHBCardViewDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F70699601BF5C73F0083FB9C /* Build configuration list for PBXNativeTarget "BHBCardViewDemoTests" */;
+			buildPhases = (
+				F70699451BF5C73F0083FB9C /* Sources */,
+				F70699461BF5C73F0083FB9C /* Frameworks */,
+				F70699471BF5C73F0083FB9C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F706994B1BF5C73F0083FB9C /* PBXTargetDependency */,
+			);
+			name = BHBCardViewDemoTests;
+			productName = BHBCardViewDemoTests;
+			productReference = F70699491BF5C73F0083FB9C /* BHBCardViewDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F70699531BF5C73F0083FB9C /* BHBCardViewDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F70699631BF5C73F0083FB9C /* Build configuration list for PBXNativeTarget "BHBCardViewDemoUITests" */;
+			buildPhases = (
+				F70699501BF5C73F0083FB9C /* Sources */,
+				F70699511BF5C73F0083FB9C /* Frameworks */,
+				F70699521BF5C73F0083FB9C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F70699561BF5C73F0083FB9C /* PBXTargetDependency */,
+			);
+			name = BHBCardViewDemoUITests;
+			productName = BHBCardViewDemoUITests;
+			productReference = F70699541BF5C73F0083FB9C /* BHBCardViewDemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F70699281BF5C73F0083FB9C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = bihongbo;
+				TargetAttributes = {
+					F706992F1BF5C73F0083FB9C = {
+						CreatedOnToolsVersion = 7.1;
+					};
+					F70699481BF5C73F0083FB9C = {
+						CreatedOnToolsVersion = 7.1;
+						TestTargetID = F706992F1BF5C73F0083FB9C;
+					};
+					F70699531BF5C73F0083FB9C = {
+						CreatedOnToolsVersion = 7.1;
+						TestTargetID = F706992F1BF5C73F0083FB9C;
+					};
+				};
+			};
+			buildConfigurationList = F706992B1BF5C73F0083FB9C /* Build configuration list for PBXProject "BHBCardViewDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F70699271BF5C73F0083FB9C;
+			productRefGroup = F70699311BF5C73F0083FB9C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F706992F1BF5C73F0083FB9C /* BHBCardViewDemo */,
+				F70699481BF5C73F0083FB9C /* BHBCardViewDemoTests */,
+				F70699531BF5C73F0083FB9C /* BHBCardViewDemoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F706992E1BF5C73F0083FB9C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F70699431BF5C73F0083FB9C /* LaunchScreen.storyboard in Resources */,
+				F70699401BF5C73F0083FB9C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F70699471BF5C73F0083FB9C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F70699521BF5C73F0083FB9C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F706992C1BF5C73F0083FB9C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F7A8CAF91BFC724500EDBC83 /* BHBCardHeaderView.m in Sources */,
+				F767E9101BFCAE0C00D0723D /* AnimationController.m in Sources */,
+				F7A8CAF81BFC723900EDBC83 /* NomalViewController.m in Sources */,
+				F70699381BF5C73F0083FB9C /* AppDelegate.m in Sources */,
+				F70699761BF983F00083FB9C /* ImageViewController.m in Sources */,
+				F706996D1BF6E1A20083FB9C /* BHBCardSegmentItem.m in Sources */,
+				F767E9131BFCAE3E00D0723D /* ViewController.m in Sources */,
+				F70699701BF6F1E20083FB9C /* BHBCardView.m in Sources */,
+				F70699351BF5C73F0083FB9C /* main.m in Sources */,
+				F70699731BF983D50083FB9C /* TableViewController.m in Sources */,
+				F706996A1BF5D3270083FB9C /* BHBCardSegmentView.m in Sources */,
+				F7A8CAED1BFC114F00EDBC83 /* BHBCardViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F70699451BF5C73F0083FB9C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F706994E1BF5C73F0083FB9C /* BHBCardViewDemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F70699501BF5C73F0083FB9C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F70699591BF5C73F0083FB9C /* BHBCardViewDemoUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F706994B1BF5C73F0083FB9C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F706992F1BF5C73F0083FB9C /* BHBCardViewDemo */;
+			targetProxy = F706994A1BF5C73F0083FB9C /* PBXContainerItemProxy */;
+		};
+		F70699561BF5C73F0083FB9C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F706992F1BF5C73F0083FB9C /* BHBCardViewDemo */;
+			targetProxy = F70699551BF5C73F0083FB9C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F70699411BF5C73F0083FB9C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F70699421BF5C73F0083FB9C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F706995B1BF5C73F0083FB9C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F706995C1BF5C73F0083FB9C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F706995E1BF5C73F0083FB9C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = BHBCardViewDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bhb.BHBCardViewDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F706995F1BF5C73F0083FB9C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = BHBCardViewDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bhb.BHBCardViewDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		F70699611BF5C73F0083FB9C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = BHBCardViewDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bhb.BHBCardViewDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BHBCardViewDemo.app/BHBCardViewDemo";
+			};
+			name = Debug;
+		};
+		F70699621BF5C73F0083FB9C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = BHBCardViewDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bhb.BHBCardViewDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BHBCardViewDemo.app/BHBCardViewDemo";
+			};
+			name = Release;
+		};
+		F70699641BF5C73F0083FB9C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = BHBCardViewDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bhb.BHBCardViewDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = BHBCardViewDemo;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		F70699651BF5C73F0083FB9C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = BHBCardViewDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bhb.BHBCardViewDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = BHBCardViewDemo;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F706992B1BF5C73F0083FB9C /* Build configuration list for PBXProject "BHBCardViewDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F706995B1BF5C73F0083FB9C /* Debug */,
+				F706995C1BF5C73F0083FB9C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F706995D1BF5C73F0083FB9C /* Build configuration list for PBXNativeTarget "BHBCardViewDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F706995E1BF5C73F0083FB9C /* Debug */,
+				F706995F1BF5C73F0083FB9C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F70699601BF5C73F0083FB9C /* Build configuration list for PBXNativeTarget "BHBCardViewDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F70699611BF5C73F0083FB9C /* Debug */,
+				F70699621BF5C73F0083FB9C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F70699631BF5C73F0083FB9C /* Build configuration list for PBXNativeTarget "BHBCardViewDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F70699641BF5C73F0083FB9C /* Debug */,
+				F70699651BF5C73F0083FB9C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F70699281BF5C73F0083FB9C /* Project object */;
+}
