@@ -58,6 +58,8 @@
 
 @property (nonatomic, strong, readonly) BHBCardSegmentView * segmentView;
 
+@property (nonatomic, assign) NSInteger currentIndex;
+
 @property (nonatomic, assign) BOOL scrollTopAnimationable;
 
 - (void)reloadData;

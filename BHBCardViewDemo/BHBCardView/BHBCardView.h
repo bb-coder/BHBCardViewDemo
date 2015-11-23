@@ -34,6 +34,10 @@
 
 @property (nonatomic, assign) CGFloat commonOffsetY;
 
+@property (nonatomic,strong ,readonly) NSMutableArray * allViewOffsets;
+
+@property (nonatomic,strong ,readonly) NSMutableArray * allViews;
+
 @property (nonatomic,weak) UIView * currentView;
 
 

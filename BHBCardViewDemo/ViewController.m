@@ -34,12 +34,12 @@
 
 - (void)aniStart{
     AnimationController * a =[[AnimationController alloc]init];
-    [self presentViewController:a animated:YES completion:nil];
+    [self presentViewController:a animated:NO completion:nil];
 }
 
 - (void)normalStart{
     NomalViewController * a =[[NomalViewController alloc]init];
-    [self presentViewController:a animated:YES completion:nil];
+    [self presentViewController:a animated:NO completion:nil];
 }
 
 @end

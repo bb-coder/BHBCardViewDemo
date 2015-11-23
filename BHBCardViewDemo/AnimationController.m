@@ -25,6 +25,7 @@
     cvc.dataSource = self;
     cvc.delegate = self;
     cvc.scrollTopAnimationable = YES;
+    cvc.currentIndex = 1;
     [self.view addSubview:cvc.view];
     [self addChildViewController:cvc];
 }
@@ -59,7 +60,7 @@
     return seView;
 }
 
--(void)cardViewHeaderViewDidDisplayOrNot:(BOOL)isDisplay{
+-(void)cardViewHeaderView:(BHBCardHeaderView *)headerView DidDisplayOrNot:(BOOL)isDisplay{
     if(isDisplay)
         NSLog(@"显示header");
     else{

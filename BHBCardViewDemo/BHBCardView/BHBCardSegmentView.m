@@ -46,6 +46,7 @@
         self.lineView = [[UIView alloc]init];
         self.lineView.backgroundColor = [UIColor colorWithRed:0 green:180/255.0 blue:89/255.0 alpha:1];
         [self addSubview:self.lineView];
+        _currentIndex = 0;
     }
     return self;
 }
@@ -70,13 +71,13 @@
     }
     
     if (items > 0) {
-        items[0].selected = YES;
+        items[_currentIndex].selected = YES;
         self.selectedItem = items[0];
         if(!self.isAutoLineWidth){
-        self.lineView.frame = CGRectMake(self.itemInset.left, items[0].size.height - 3, items[0].size.width, 3);
+        self.lineView.frame = CGRectMake(self.itemInset.left, items[_currentIndex].size.height - 3, items[_currentIndex].size.width, 3);
         }
         else{
-        self.lineView.frame = CGRectMake(self.itemInset.left + (items[0].size.width - items[0].contentFrame.size.width - 40)/2, items[0].size.height - 3, items[0].contentFrame.size.width + 40, 3);
+        self.lineView.frame = CGRectMake(self.itemInset.left + (items[_currentIndex].size.width - items[_currentIndex].contentFrame.size.width - 40)/2, items[_currentIndex].size.height - 3, items[_currentIndex].contentFrame.size.width + 40, 3);
         }
         
     }

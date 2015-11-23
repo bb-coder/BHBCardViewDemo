@@ -12,6 +12,9 @@
 
 @property (nonatomic,strong) NSMutableArray * allViews;
 
+@property (nonatomic,strong) NSMutableArray * allViewOffsets;
+
+
 @end
 
 @implementation BHBCardView
@@ -22,9 +25,10 @@
     if (self) {
         self.delegate = self;
         self.pagingEnabled = YES;
-        self.clipsToBounds = NO;
+        self.clipsToBounds = YES;
         self.showsHorizontalScrollIndicator = NO;
         self.bounces = NO;
+        _currentCardIndex = 0;
     }
     return self;
 }
@@ -36,15 +40,23 @@
     return _allViews;
 }
 
+- (NSMutableArray *)allViewOffsets{
+    if (!_allViewOffsets) {
+        _allViewOffsets = [[NSMutableArray alloc] init];
+    }
+    return _allViewOffsets;
+    
+}
+
 - (void)setControllers:(NSArray *)controllers{
     [self clearAllViews];
     _controllers = controllers;
     [self addAllViews];
     
     if(self.controllers.count > 0)
-    self.currentViewController = _controllers[0];
+    self.currentViewController = _controllers[_currentCardIndex];
     if(self.allViews.count > 0)
-        self.currentView = _allViews[0];
+        self.currentView = _allViews[_currentCardIndex];
     
     CGRect vcFrame = CGRectZero;
     for (int i = 0; i < self.controllers.count; i ++) {
@@ -67,6 +79,7 @@
 
 - (void)clearAllViews{
     [self.allViews removeAllObjects];
+    [self.allViewOffsets removeAllObjects];
     for (UIViewController * vc in _controllers) {
         if ([vc.view isKindOfClass:[UIScrollView class]]) {
             [self removeObserverWith:vc.view];
@@ -91,11 +104,18 @@
         if ([vc.view isKindOfClass:[UIScrollView class]]) {
             [self addObserverWith:vc.view];
             [self.allViews addObject:vc.view];
+            UIScrollView * sc = (UIScrollView *)vc.view;
+            NSValue * cInset = [NSValue valueWithUIEdgeInsets:sc.contentInset];
+            [self.allViewOffsets addObject:cInset];
         }else{
             for (UIView * obj in vc.view.subviews) {
                 if ([obj isKindOfClass:[UIScrollView class]]) {
+                    UIScrollView * sc = (UIScrollView *)obj;
+                    NSValue * cInset = [NSValue valueWithUIEdgeInsets:sc.contentInset];
+                    [self.allViewOffsets addObject:cInset];
                     [self addObserverWith:obj];
                     [self.allViews addObject:obj];
+                    break;
                 }
             }
         }
@@ -108,9 +128,9 @@
     
     _topInSetY = topInSetY;
     for (UIScrollView * sv in self.allViews) {
-        sv.contentInset = UIEdgeInsetsMake(sv.contentInset.top + self.topInSetY,sv.contentInset.left , sv.contentInset.bottom, sv.contentInset.right);
-//        sv.bounds = CGRectMake(0, - topInSetY, sv.frame.size.width, sv.frame.size.height);
-        [sv setContentOffset:CGPointMake(sv.contentOffset.x, - topInSetY) animated:YES];
+        sv.contentInset = UIEdgeInsetsMake(sv.contentInset.top + _topInSetY,sv.contentInset.left , sv.contentInset.bottom, sv.contentInset.right);
+//        sv.bounds = CGRectMake(0, -topInSetY, sv.frame.size.width, sv.frame.size.height);
+//        [sv setContentOffset:CGPointMake(sv.contentOffset.x, - topInSetY) animated:YES];
     }
 }
 
@@ -124,8 +144,10 @@
     _commonOffsetY = commonOffsetY;
         for (UIScrollView * sc in self.allViews) {
             if (sc != self.currentView) {
-                if (sc.contentOffset.y <= -self.topY) {
-                    sc.contentOffset = CGPointMake(sc.contentOffset.x, -commonOffsetY);
+                NSInteger index = [self.allViews indexOfObject:sc];
+                UIEdgeInsets contentInset = [self.allViewOffsets[index] UIEdgeInsetsValue];
+                if (sc.contentOffset.y - contentInset.top <= -self.topY) {
+                    sc.contentOffset = CGPointMake(sc.contentOffset.x, -commonOffsetY - contentInset.top);
                 }
             }
         }
