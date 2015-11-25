@@ -16,7 +16,7 @@
     if ([self pointInside:point withEvent:event]) {
     
         for (UIView * subView in self.subviews) {
-            if (([subView isKindOfClass:[BHBCardSegmentView class]] || [subView isKindOfClass:[UIResponder class]]) && subView.userInteractionEnabled) {
+            if (([subView isKindOfClass:[BHBCardSegmentView class]]) && subView.userInteractionEnabled) {
                 CGPoint convertPoint = [subView convertPoint:point fromView:self];
                 if ([subView pointInside:convertPoint withEvent:event]) {
                     return [super hitTest:point withEvent:event];

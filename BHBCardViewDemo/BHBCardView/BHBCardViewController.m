@@ -23,9 +23,6 @@
 @implementation BHBCardViewController
 
 - (void)reloadData{
-    
-    NSLog(@"%@",NSStringFromCGRect(self.view.frame));
-    
     [self.cardView removeFromSuperview];
     [self.headerView removeFromSuperview];
     self.controllers = nil;
@@ -47,17 +44,18 @@
     
     self.cardView = [[BHBCardView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     self.cardView.cardViewDelegate = self;
+    self.cardView.topY = self.segmentView.frame.size.height;
     if (self.dataSource && [self.dataSource respondsToSelector:@selector(cardViewControllerSubControllers)]) {
         self.cardView.controllers = [self.dataSource cardViewControllerSubControllers];
         [self.cardView.controllers enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             UIViewController * vc = (UIViewController *)obj;
             [self addChildViewController:vc];
         }];
-        self.cardView.topInSetY = self.headerView.frame.size.height;
-        self.cardView.topY = self.segmentView.frame.size.height;
     }
-    self.cardView.currentCardIndex = _currentIndex;
     self.segmentView.currentIndex = _currentIndex;
+    self.cardView.currentCardIndex = _currentIndex;
+    self.cardView.topInSetY = self.headerView.frame.size.height;
+    self.cardView.commonOffsetY = self.headerView.frame.size.height;
     [self.view addSubview:self.cardView];
     [self.view bringSubviewToFront:self.headerView];
     
@@ -69,6 +67,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if (self.parentViewController) {
+        self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height - 64);
+    }
     [self reloadData];
 }
 
@@ -81,16 +82,13 @@
 - (void)carViewDidScrollToIndex:(NSInteger)index{
     self.segmentView.currentIndex = index;
     _currentIndex = index;
-//    if (self.scrollTopAnimationable) {
-//        [self scrollTopAnimation];
-//    }
 }
 
 - (void)scrollTopAnimation{
 
     UIScrollView * sc = (UIScrollView *)self.cardView.currentView;
     NSInteger index = [self.cardView.allViews indexOfObject:sc];
-    UIEdgeInsets contentInset = [self.cardView.allViewOffsets[index] UIEdgeInsetsValue];
+    UIEdgeInsets contentInset = [self.cardView.allViewInsets[index] UIEdgeInsetsValue];
     [sc setContentOffset:CGPointMake(0, -self.cardView.topY - contentInset.top) animated:YES];
 }
 
@@ -105,7 +103,7 @@
 
 -(void)cardViewScroll:(UIScrollView *)scollView didScrollWithOffsetOld:(CGPoint)offsetOld andOffetNew:(CGPoint)offsetNew{
     NSInteger index = [self.cardView.allViews indexOfObject:scollView];
-    UIEdgeInsets contentInset = [self.cardView.allViewOffsets[index] UIEdgeInsetsValue];
+    UIEdgeInsets contentInset = [self.cardView.allViewInsets[index] UIEdgeInsetsValue];
         CGFloat headerTargetY = -(offsetNew.y + contentInset.top + self.cardView.topInSetY);
         if (headerTargetY <= 0 && headerTargetY >= -(self.cardView.topInSetY - self.cardView.topY)) {
             self.headerView.frame = CGRectMake(self.headerView.frame.origin.x,headerTargetY, self.headerView.frame.size.width, self.headerView.frame.size.height);

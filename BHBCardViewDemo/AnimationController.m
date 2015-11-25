@@ -61,11 +61,11 @@
 }
 
 -(void)cardViewHeaderView:(BHBCardHeaderView *)headerView DidDisplayOrNot:(BOOL)isDisplay{
-    if(isDisplay)
-        NSLog(@"显示header");
-    else{
-        NSLog(@"header出屏幕");
-    }
+//    if(isDisplay)
+//        NSLog(@"显示header");
+//    else{
+//        NSLog(@"header出屏幕");
+//    }
     
 }
 
