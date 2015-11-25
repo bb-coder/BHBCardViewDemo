@@ -31,8 +31,7 @@
     
     self.tableView.backgroundColor = [UIColor lightGrayColor];
     
-//    self.tableView.tableHeaderView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 200)];
-    self.tableView.contentInset = UIEdgeInsetsMake(200, 0, 0, 0);
+//    self.tableView.contentInset = UIEdgeInsetsMake(200, 0, 0, 0);
     
 }
 

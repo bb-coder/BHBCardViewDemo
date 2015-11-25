@@ -169,7 +169,6 @@
         CGPoint oldP = [change[@"old"] CGPointValue];
         CGPoint newP = [change[@"new"] CGPointValue];
         if(object == self.currentView){
-        NSLog(@"view:%@---change:%@",object,change);
             if (self.cardViewDelegate && [self.cardViewDelegate respondsToSelector:@selector(cardViewScroll:didScrollWithOffsetOld:andOffetNew:)]) {
                 [self.cardViewDelegate cardViewScroll:object didScrollWithOffsetOld:oldP andOffetNew:newP];
             }

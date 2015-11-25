@@ -49,20 +49,20 @@
 -(BHBCardSegmentView *)cardViewControllerSegmentView{
     BHBCardSegmentView * seView = [[BHBCardSegmentView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 49)];
     BHBCardSegmentItem * item1 = [[BHBCardSegmentItem alloc]initWithCustomView:nil];
-    item1.title = @"介绍";
+    item1.title = @"表格";
     BHBCardSegmentItem * item2 = [[BHBCardSegmentItem alloc]init];
-    item2.title = @"课程";
+    item2.title = @"美女";
     BHBCardSegmentItem * item3 = [[BHBCardSegmentItem alloc]init];
-    item3.title = @"评价";
+    item3.title = @"滚动";
     seView.items = @[item1,item2];
     return seView;
 }
 
 -(void)cardViewHeaderView:(BHBCardHeaderView *)headerView DidDisplayOrNot:(BOOL)isDisplay{
-//    if(isDisplay)
-//        NSLog(@"显示headerFrame:%@",NSStringFromCGRect(headerView.frame));
-//    else{
-//        NSLog(@"header出屏幕");
-//    }
+    if(isDisplay)
+        NSLog(@"显示headerFrame:%@",NSStringFromCGRect(headerView.frame));
+    else{
+        NSLog(@"header出屏幕");
+    }
 }
 @end
