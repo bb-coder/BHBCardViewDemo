@@ -61,7 +61,7 @@
     CGRect vcFrame = CGRectZero;
     for (int i = 0; i < self.controllers.count; i ++) {
         UIViewController * vc = self.controllers[i];
-        vcFrame = vc.view.bounds;
+        vcFrame = self.bounds;
         vcFrame.origin.x = i * self.frame.size.width;
         vc.view.frame = vcFrame;
     }
@@ -71,11 +71,17 @@
 
 - (void)addObserverWith:(NSObject *)target{
     [target addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
+    if ([target isMemberOfClass:[UICollectionView class]]) {
+        return;
+    }
     [target addObserver:self forKeyPath:@"contentSize" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
 }
 
 - (void)removeObserverWith:(NSObject *)target{
     [target removeObserver:self forKeyPath:@"contentOffset"];
+    if ([target isMemberOfClass:[UICollectionView class]]) {
+        return;
+    }
     [target removeObserver:self forKeyPath:@"contentSize"];
 }
 
@@ -143,25 +149,33 @@
 -(void)setCommonOffsetY:(CGFloat)commonOffsetY{
     
     _commonOffsetY = commonOffsetY;
-        for (UIScrollView * sc in self.allViews) {
-            NSInteger index = [self.allViews indexOfObject:sc];
-            UIEdgeInsets contentInset = [self.allViewOffsets[index] UIEdgeInsetsValue];
-            if (sc != self.currentView) {
-                if (sc.contentOffset.y + contentInset.top <= -self.topY) {
+    for (UIScrollView * sc in self.allViews) {
+        NSInteger index = [self.allViews indexOfObject:sc];
+        UIEdgeInsets contentInset = [self.allViewOffsets[index] UIEdgeInsetsValue];
+        if (sc != self.currentView) {
+            if (sc.contentOffset.y + contentInset.top <= -self.topY) {
                 sc.contentOffset = CGPointMake(sc.contentOffset.x, -commonOffsetY - contentInset.top);
-                }
-            }
-            if (sc.contentOffset.y + contentInset.top <= -self.topY && sc.contentOffset.y + contentInset.top >=  -self.topInSetY) {
-            sc.contentInset = UIEdgeInsetsMake((-sc.contentOffset.y),sc.contentInset.left , sc.contentInset.bottom, sc.contentInset.right);
-            }
-            else if(sc.contentOffset.y + contentInset.top > -self.topY){
-                sc.contentInset = UIEdgeInsetsMake((self.topY + contentInset.top),sc.contentInset.left , sc.contentInset.bottom, sc.contentInset.right);
-            }
-            else if(sc.contentOffset.y + contentInset.top < -self.topInSetY){
-                sc.contentInset = UIEdgeInsetsMake((self.topInSetY + contentInset.top),sc.contentInset.left , sc.contentInset.bottom, sc.contentInset.right);
             }
         }
+        if ([sc isMemberOfClass:[UICollectionView class]]) {
+            continue;
+        }
+        if (sc.contentOffset.y + contentInset.top <= -self.topY && sc.contentOffset.y + contentInset.top >=  -self.topInSetY) {
+            if(sc.contentInset.top != (-sc.contentOffset.y))
+                sc.contentInset = UIEdgeInsetsMake((-sc.contentOffset.y),sc.contentInset.left , sc.contentInset.bottom, sc.contentInset.right);
+        }
+        else if(sc.contentOffset.y + contentInset.top > -self.topY){
+            if(sc.contentInset.top != (self.topY + contentInset.top))
+                sc.contentInset = UIEdgeInsetsMake((self.topY + contentInset.top),sc.contentInset.left , sc.contentInset.bottom, sc.contentInset.right);
+        }
+        else if(sc.contentOffset.y + contentInset.top < -self.topInSetY){
+            if(sc.contentInset.top != (self.topInSetY + contentInset.top))
+                sc.contentInset = UIEdgeInsetsMake((self.topInSetY + contentInset.top),sc.contentInset.left , sc.contentInset.bottom, sc.contentInset.right);
+        }
+        
+    }
 }
+
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context{
     

@@ -60,9 +60,13 @@
 
 @property (nonatomic, strong, readonly) BHBCardView * cardView;
 
+@property (nonatomic, assign) CGRect frame;
+
 @property (nonatomic, assign) NSInteger currentIndex;
 
 @property (nonatomic, assign) BOOL scrollTopAnimationable;
+
+@property (nonatomic, assign) CGFloat topY;
 
 - (void)reloadData;
 

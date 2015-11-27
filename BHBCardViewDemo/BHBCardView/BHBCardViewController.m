@@ -23,8 +23,15 @@
 @implementation BHBCardViewController
 
 - (void)reloadData{
+    if (!CGRectIsEmpty(self.frame)) {
+        self.view.frame = self.frame;
+    }else{
+        self.frame = self.view.frame;
+    }
     [self.cardView removeFromSuperview];
     [self.headerView removeFromSuperview];
+    self.cardView = nil;
+    self.headerView = nil;
     self.controllers = nil;
     
     if (self.dataSource && [self.dataSource respondsToSelector:@selector(cardViewControllerSegmentView)]) {
@@ -42,9 +49,9 @@
     self.segmentView.userInteractionEnabled = YES;
     [self.headerView addSubview:self.segmentView];
     
-    self.cardView = [[BHBCardView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    self.cardView = [[BHBCardView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
     self.cardView.cardViewDelegate = self;
-    self.cardView.topY = self.segmentView.frame.size.height;
+    self.cardView.topY = self.segmentView.frame.size.height + self.topY;
     if (self.dataSource && [self.dataSource respondsToSelector:@selector(cardViewControllerSubControllers)]) {
         self.cardView.controllers = [self.dataSource cardViewControllerSubControllers];
         [self.cardView.controllers enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -67,9 +74,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    if (self.parentViewController) {
-        self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height - 64);
-    }
     [self reloadData];
 }
 
@@ -102,7 +106,13 @@
 
 
 -(void)cardViewScroll:(UIScrollView *)scollView didScrollWithOffsetOld:(CGPoint)offsetOld andOffetNew:(CGPoint)offsetNew{
+    if (!self.cardView || !self.headerView) {
+        return;
+    }
     NSInteger index = [self.cardView.allViews indexOfObject:scollView];
+    if (self.cardView.allViewInsets.count < index) {
+        return;
+    }
     UIEdgeInsets contentInset = [self.cardView.allViewInsets[index] UIEdgeInsetsValue];
         CGFloat headerTargetY = -(offsetNew.y + contentInset.top + self.cardView.topInSetY);
         if (headerTargetY <= 0 && headerTargetY >= -(self.cardView.topInSetY - self.cardView.topY)) {
@@ -119,14 +129,15 @@
         }
     if(self.cardView.commonOffsetY != self.headerView.frame.origin.y + self.headerView.frame.size.height){
         self.cardView.commonOffsetY = self.headerView.frame.origin.y + self.headerView.frame.size.height;
-        if (self.cardView.commonOffsetY == self.cardView.topY) {
+        if (floor(self.cardView.commonOffsetY) > self.cardView.topY) {
             if (self.delegate && [self.delegate respondsToSelector:@selector(cardViewHeaderView:DidDisplayOrNot:)]) {
-                [self.delegate cardViewHeaderView:self.headerView DidDisplayOrNot:NO];
+                [self.delegate cardViewHeaderView:self.headerView DidDisplayOrNot:YES];
             }
         }else{
             if (self.delegate && [self.delegate respondsToSelector:@selector(cardViewHeaderView:DidDisplayOrNot:)]) {
-            [self.delegate cardViewHeaderView:self.headerView DidDisplayOrNot:YES];
+                [self.delegate cardViewHeaderView:self.headerView DidDisplayOrNot:NO];
             }
+            
         }
     }
     
