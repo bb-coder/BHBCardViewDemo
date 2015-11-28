@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BHBCardSegmentView.h"
 
 @interface BHBCardHeaderView : UIView
+
+@property (nonatomic, weak) BHBCardSegmentView * segmentView;
 
 @end

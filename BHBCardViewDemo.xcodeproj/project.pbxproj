@@ -23,6 +23,9 @@
 		F7A8CAED1BFC114F00EDBC83 /* BHBCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A8CAEC1BFC114F00EDBC83 /* BHBCardViewController.m */; };
 		F7A8CAF81BFC723900EDBC83 /* NomalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A8CAEF1BFC117600EDBC83 /* NomalViewController.m */; };
 		F7A8CAF91BFC724500EDBC83 /* BHBCardHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A8CAF51BFC687C00EDBC83 /* BHBCardHeaderView.m */; };
+		F7DAAA671C094EFE002F6DB1 /* UICollectionViewAdjustHeightLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F7DAAA661C094EFE002F6DB1 /* UICollectionViewAdjustHeightLayout.m */; };
+		F7DAAA6A1C094F46002F6DB1 /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7DAAA691C094F46002F6DB1 /* CollectionViewController.m */; };
+		F7DAAA6D1C095434002F6DB1 /* BackBtnNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7DAAA6C1C095434002F6DB1 /* BackBtnNavController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +79,12 @@
 		F7A8CAEF1BFC117600EDBC83 /* NomalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NomalViewController.m; sourceTree = "<group>"; };
 		F7A8CAF41BFC687C00EDBC83 /* BHBCardHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHBCardHeaderView.h; sourceTree = "<group>"; };
 		F7A8CAF51BFC687C00EDBC83 /* BHBCardHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHBCardHeaderView.m; sourceTree = "<group>"; };
+		F7DAAA651C094EFE002F6DB1 /* UICollectionViewAdjustHeightLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICollectionViewAdjustHeightLayout.h; sourceTree = "<group>"; };
+		F7DAAA661C094EFE002F6DB1 /* UICollectionViewAdjustHeightLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICollectionViewAdjustHeightLayout.m; sourceTree = "<group>"; };
+		F7DAAA681C094F46002F6DB1 /* CollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
+		F7DAAA691C094F46002F6DB1 /* CollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
+		F7DAAA6B1C095434002F6DB1 /* BackBtnNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackBtnNavController.h; sourceTree = "<group>"; };
+		F7DAAA6C1C095434002F6DB1 /* BackBtnNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackBtnNavController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,8 +146,12 @@
 				F767E90F1BFCAE0C00D0723D /* AnimationController.m */,
 				F70699711BF983D50083FB9C /* TableViewController.h */,
 				F70699721BF983D50083FB9C /* TableViewController.m */,
+				F7DAAA681C094F46002F6DB1 /* CollectionViewController.h */,
+				F7DAAA691C094F46002F6DB1 /* CollectionViewController.m */,
 				F70699741BF983F00083FB9C /* ImageViewController.h */,
 				F70699751BF983F00083FB9C /* ImageViewController.m */,
+				F7DAAA6B1C095434002F6DB1 /* BackBtnNavController.h */,
+				F7DAAA6C1C095434002F6DB1 /* BackBtnNavController.m */,
 				F706993F1BF5C73F0083FB9C /* Assets.xcassets */,
 				F70699411BF5C73F0083FB9C /* LaunchScreen.storyboard */,
 				F70699441BF5C73F0083FB9C /* Info.plist */,
@@ -176,6 +189,8 @@
 		F70699671BF5CEFB0083FB9C /* BHBCardView */ = {
 			isa = PBXGroup;
 			children = (
+				F7DAAA651C094EFE002F6DB1 /* UICollectionViewAdjustHeightLayout.h */,
+				F7DAAA661C094EFE002F6DB1 /* UICollectionViewAdjustHeightLayout.m */,
 				F70699681BF5D3270083FB9C /* BHBCardSegmentView.h */,
 				F70699691BF5D3270083FB9C /* BHBCardSegmentView.m */,
 				F706996B1BF6E1A20083FB9C /* BHBCardSegmentItem.h */,
@@ -320,12 +335,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7A8CAF91BFC724500EDBC83 /* BHBCardHeaderView.m in Sources */,
+				F7DAAA671C094EFE002F6DB1 /* UICollectionViewAdjustHeightLayout.m in Sources */,
 				F767E9101BFCAE0C00D0723D /* AnimationController.m in Sources */,
+				F7DAAA6D1C095434002F6DB1 /* BackBtnNavController.m in Sources */,
 				F7A8CAF81BFC723900EDBC83 /* NomalViewController.m in Sources */,
 				F70699381BF5C73F0083FB9C /* AppDelegate.m in Sources */,
 				F70699761BF983F00083FB9C /* ImageViewController.m in Sources */,
 				F706996D1BF6E1A20083FB9C /* BHBCardSegmentItem.m in Sources */,
 				F767E9131BFCAE3E00D0723D /* ViewController.m in Sources */,
+				F7DAAA6A1C094F46002F6DB1 /* CollectionViewController.m in Sources */,
 				F70699701BF6F1E20083FB9C /* BHBCardView.m in Sources */,
 				F70699351BF5C73F0083FB9C /* main.m in Sources */,
 				F70699731BF983D50083FB9C /* TableViewController.m in Sources */,

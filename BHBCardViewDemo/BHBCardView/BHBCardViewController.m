@@ -48,6 +48,7 @@
     self.segmentView.frame = CGRectMake(self.segmentView.frame.origin.x, self.headerView.frame.size.height - self.segmentView.frame.size.height, self.segmentView.frame.size.width, self.segmentView.frame.size.height);
     self.segmentView.userInteractionEnabled = YES;
     [self.headerView addSubview:self.segmentView];
+    self.headerView.segmentView = self.segmentView;
     
     self.cardView = [[BHBCardView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
     self.cardView.cardViewDelegate = self;
