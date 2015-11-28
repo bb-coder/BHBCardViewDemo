@@ -22,6 +22,8 @@
     [super viewDidLoad];
     self.title = @"点击无吸顶";
     self.automaticallyAdjustsScrollViewInsets = NO;
+
+//--------------------创建交互控制器-----------------------------------
     BHBCardViewController * cvc = [[BHBCardViewController alloc]init];
     cvc.dataSource = self;
     cvc.delegate = self;
@@ -29,8 +31,10 @@
     cvc.scrollTopAnimationable = NO;
     [self.view addSubview:cvc.view];
     [self addChildViewController:cvc];
+//--------------------创建交互控制器-----------------------------------
 }
 
+#pragma mark cardview delegate and dataSource
 -(BHBCardHeaderView *)cardViewControllerCustomHeaderView{
     BHBCardHeaderView * headerView = [[BHBCardHeaderView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 349)];
     UIImageView * topView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 349)];

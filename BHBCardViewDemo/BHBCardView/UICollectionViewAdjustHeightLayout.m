@@ -16,9 +16,7 @@
     if (size.height < self.collectionView.frame.size.height) {
         size.height = self.collectionView.frame.size.height;
     }
-    
     return size;
-    
 }
 
 @end

@@ -27,6 +27,7 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.navigationController.navigationBar bhb_setBackgroundColor:[defautColor colorWithAlphaComponent:0]];
     
+//--------------------创建交互控制器-----------------------------------
     BHBCardViewController * cvc = [[BHBCardViewController alloc]init];
     cvc.dataSource = self;
     cvc.delegate = self;
@@ -35,8 +36,11 @@
     cvc.currentIndex = 1;
     [self.view addSubview:cvc.view];
     [self addChildViewController:cvc];
+//--------------------创建交互控制器.end-------------------------------
 }
 
+
+#pragma mark cardview delegate and dataSource
 -(BHBCardHeaderView *)cardViewControllerCustomHeaderView{
     BHBCardHeaderView * headerView = [[BHBCardHeaderView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 349)];
     UIImageView * topView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 349)];
@@ -60,7 +64,7 @@
     BHBCardSegmentItem * item1 = [[BHBCardSegmentItem alloc]initWithCustomView:nil];
     item1.title = @"表格";
     BHBCardSegmentItem * item2 = [[BHBCardSegmentItem alloc]init];
-    item2.title = @"美女";
+    item2.title = @"集合";
     BHBCardSegmentItem * item3 = [[BHBCardSegmentItem alloc]init];
     item3.title = @"滚动";
     seView.items = @[item1,item2,item3];
