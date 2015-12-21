@@ -39,7 +39,7 @@
         self.contentView.showsVerticalScrollIndicator = NO;
         self.contentView.bounces = NO;
         [self addSubview:self.contentView];
-        self.itemInset = UIEdgeInsetsMake(0, 50, 0, 40);
+        self.itemInset = UIEdgeInsetsMake(0, 55, 0, 40);
         
         self.showBottomLine = YES;
         self.isAutoLineWidth = YES;
@@ -85,30 +85,62 @@
 }
 
 - (void)lineMoveWithIndex:(NSIndexPath *)indexPath{
+    [self lineMoveWithIndex:indexPath andAnimation:YES];
+}
+
+- (void)lineMoveWithIndex:(NSIndexPath *)indexPath andAnimation:(BOOL)animation{
     UICollectionViewLayoutAttributes * attr = [self.contentView.collectionViewLayout layoutAttributesForItemAtIndexPath:indexPath];
     BHBCardSegmentItem * item = self.items[indexPath.item];
-    [UIView animateWithDuration:.25 animations:^{
+    if (animation) {
+        [UIView animateWithDuration:.25 animations:^{
+            CGRect frame = self.lineView.frame;
+            if (self.isAutoLineWidth) {
+                frame.size.width = item.contentFrame.size.width + 40;
+                frame.origin.x = attr.frame.origin.x + (item.size.width - frame.size.width)/2;
+            }else{
+                frame.size.width = item.size.width;
+                frame.origin.x = attr.frame.origin.x;
+            }
+            self.lineView.frame = frame;
+        }];
+    }else{
         CGRect frame = self.lineView.frame;
         if (self.isAutoLineWidth) {
             frame.size.width = item.contentFrame.size.width + 40;
             frame.origin.x = attr.frame.origin.x + (item.size.width - frame.size.width)/2;
         }else{
-        frame.size.width = item.size.width;
-        frame.origin.x = attr.frame.origin.x;
+            frame.size.width = item.size.width;
+            frame.origin.x = attr.frame.origin.x;
         }
         self.lineView.frame = frame;
-    }];
+    }
+
 }
 
 
 -(void)setCurrentIndex:(NSInteger)currentIndex{
     _currentIndex = currentIndex;
+    [self setselectIndex:currentIndex andAnimation:YES];
+}
+
+- (void)setselectIndex:(NSInteger)currentIndex andAnimation:(BOOL)animation{
+    
     [self.contentView selectItemAtIndexPath:[NSIndexPath indexPathForItem:currentIndex inSection:0] animated:YES scrollPosition:UICollectionViewScrollPositionCenteredHorizontally];
     self.selectedItem.selected = NO;
     BHBCardSegmentItem * item = self.items[currentIndex];
     item.selected = YES;
     self.selectedItem = item;
-    [self lineMoveWithIndex:[NSIndexPath indexPathForItem:currentIndex inSection:0]];
+    if (animation) {
+        [self lineMoveWithIndex:[NSIndexPath indexPathForItem:currentIndex inSection:0]];
+    }else{
+        [self lineMoveWithIndex:[NSIndexPath indexPathForItem:currentIndex inSection:0] andAnimation:NO];
+    }
+    
+}
+
+- (void)setSelectItem:(NSInteger)index{
+    _currentIndex = index;
+    [self setselectIndex:index andAnimation:NO];
 }
 
 

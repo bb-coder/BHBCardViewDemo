@@ -40,7 +40,7 @@
     return _allViews;
 }
 
-- (NSMutableArray *)allViewOffsets{
+- (NSMutableArray *)allViewInsets{
     if (!_allViewInsets) {
         _allViewInsets = [[NSMutableArray alloc] init];
     }
@@ -86,8 +86,6 @@
 }
 
 - (void)clearAllViews{
-    [self.allViews removeAllObjects];
-    [self.allViewOffsets removeAllObjects];
     for (UIViewController * vc in _controllers) {
         if ([vc.view isKindOfClass:[UIScrollView class]]) {
             [self removeObserverWith:vc.view];
@@ -99,8 +97,19 @@
                 }
             }
         }
-        [vc.view removeFromSuperview];
+                [vc.view removeFromSuperview];
     }
+    int i = 0;
+    
+    for (UIScrollView * scr in self.allViews) {
+        scr.contentInset = [self.allViewInsets[i] UIEdgeInsetsValue];
+        scr.contentOffset = CGPointMake(0, scr.contentInset.top);
+        i++;
+    }
+    [self.controllers makeObjectsPerformSelector:@selector(removeFromParentViewController)];
+    [self.allViews removeAllObjects];
+    [self.allViewInsets removeAllObjects];
+    
 }
 
 
@@ -113,14 +122,14 @@
             [self.allViews addObject:vc.view];
             UIScrollView * sc = (UIScrollView *)vc.view;
             NSValue * cInset = [NSValue valueWithUIEdgeInsets:sc.contentInset];
-            sc.bounces = YES;
-            [self.allViewOffsets addObject:cInset];
+            sc.bounces = NO;
+            [self.allViewInsets addObject:cInset];
         }else{
             for (UIView * obj in vc.view.subviews) {
                 if ([obj isKindOfClass:[UIScrollView class]]) {
                     UIScrollView * sc = (UIScrollView *)obj;
                     NSValue * cInset = [NSValue valueWithUIEdgeInsets:sc.contentInset];
-                    [self.allViewOffsets addObject:cInset];
+                    [self.allViewInsets addObject:cInset];
                     [self addObserverWith:obj];
                     [self.allViews addObject:obj];
                     sc.bounces = YES;
@@ -142,7 +151,20 @@
 }
 
 -(void)dealloc{
-    [self clearAllViews];
+    for (UIViewController * vc in _controllers) {
+        if ([vc.view isKindOfClass:[UIScrollView class]]) {
+            [self removeObserverWith:vc.view];
+        }else{
+            for (UIView * obj in vc.view.subviews) {
+                if ([obj isKindOfClass:[UIScrollView class]]) {
+                    [self removeObserverWith:obj];
+                    break;
+                }
+            }
+        }
+        //        [vc.view removeFromSuperview];
+    }
+
 
 }
 
@@ -151,7 +173,7 @@
     _commonOffsetY = commonOffsetY;
     for (UIScrollView * sc in self.allViews) {
         NSInteger index = [self.allViews indexOfObject:sc];
-        UIEdgeInsets contentInset = [self.allViewOffsets[index] UIEdgeInsetsValue];
+        UIEdgeInsets contentInset = [self.allViewInsets[index] UIEdgeInsetsValue];
         if (sc != self.currentView) {
             if (sc.contentOffset.y + contentInset.top <= -self.topY) {
                 sc.contentOffset = CGPointMake(sc.contentOffset.x, -commonOffsetY - contentInset.top);
@@ -199,7 +221,8 @@
 
 - (void)adjustContentSize:(UIScrollView *)scr{
     NSInteger index = [self.allViews indexOfObject:scr];
-    UIEdgeInsets contentTopInset = [[self.allViewOffsets objectAtIndex:index] UIEdgeInsetsValue];
+    if(![self.allViews containsObject:scr])return;
+    UIEdgeInsets contentTopInset = [[self.allViewInsets objectAtIndex:index] UIEdgeInsetsValue];
     if (scr.contentSize.height < scr.bounds.size.height - contentTopInset.top - self.topY) {
         scr.contentSize = CGSizeMake(0, scr.bounds.size.height - contentTopInset.top - self.topY);
     }
@@ -210,8 +233,20 @@
     
     _currentCardIndex = currentCardIndex;
     self.currentViewController = self.controllers[currentCardIndex];
+    if(_allViews.count > currentCardIndex)
     self.currentView = self.allViews[currentCardIndex];
     [self setContentOffset:CGPointMake(self.frame.size.width * _currentCardIndex, 0) animated:YES];
+    
+}
+
+
+- (void)setDefautIndex:(NSInteger)index{
+    
+    _currentCardIndex = index;
+    self.currentViewController = self.controllers[index];
+    if(_allViews.count > index)
+    self.currentView = self.allViews[index];
+    [self setContentOffset:CGPointMake(self.frame.size.width * _currentCardIndex, 0) animated:NO];
     
 }
 

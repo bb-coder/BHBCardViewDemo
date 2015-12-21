@@ -28,6 +28,8 @@
     }else{
         self.frame = self.view.frame;
     }
+    [self.cardView.controllers makeObjectsPerformSelector:@selector(removeFromParentViewController)];
+    [self.cardView clearAllViews];
     [self.cardView removeFromSuperview];
     [self.headerView removeFromSuperview];
     self.cardView = nil;
@@ -39,7 +41,9 @@
     }
     if (self.dataSource && [self.dataSource respondsToSelector:@selector(cardViewControllerCustomHeaderView)]) {
         self.headerView = [self.dataSource cardViewControllerCustomHeaderView];
-    }else{
+    }
+    
+    if(!self.headerView){
         self.headerView = [[BHBCardHeaderView alloc]initWithFrame:self.segmentView.bounds];
     }
     self.headerView.userInteractionEnabled = YES;
@@ -49,8 +53,12 @@
     self.segmentView.userInteractionEnabled = YES;
     [self.headerView addSubview:self.segmentView];
     self.headerView.segmentView = self.segmentView;
-    
-    self.cardView = [[BHBCardView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+    if(!self.cardView){
+      self.cardView = [[BHBCardView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+    }
+    else{
+        self.cardView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
+    }
     self.cardView.cardViewDelegate = self;
     self.cardView.topY = self.segmentView.frame.size.height + self.topY;
     if (self.dataSource && [self.dataSource respondsToSelector:@selector(cardViewControllerSubControllers)]) {
@@ -60,8 +68,8 @@
             [self addChildViewController:vc];
         }];
     }
-    self.segmentView.currentIndex = _currentIndex;
-    self.cardView.currentCardIndex = _currentIndex;
+    [self.segmentView setSelectItem:_currentIndex];
+    [self.cardView setDefautIndex:_currentIndex];
     self.cardView.topInSetY = self.headerView.frame.size.height;
     self.cardView.commonOffsetY = self.headerView.frame.size.height;
     [self.view addSubview:self.cardView];
@@ -81,12 +89,14 @@
 - (void)setCurrentIndex:(NSInteger)currentIndex{
     
     _currentIndex = currentIndex;
-    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(cardViewHeaderView:DidSelectCurrentIndex:)]) {
+        [self.delegate cardViewHeaderView:self.headerView DidSelectCurrentIndex:_currentIndex];
+    }
 }
 
 - (void)carViewDidScrollToIndex:(NSInteger)index{
     self.segmentView.currentIndex = index;
-    _currentIndex = index;
+    self.currentIndex = index;
 }
 
 - (void)scrollTopAnimation{
@@ -99,7 +109,7 @@
 
 -(void)cardSegmentViewDidSelectIndex:(NSInteger)index{
     self.cardView.currentCardIndex = index;
-    _currentIndex = index;
+    self.currentIndex = index;
     if (self.scrollTopAnimationable) {
         [self scrollTopAnimation];
     }

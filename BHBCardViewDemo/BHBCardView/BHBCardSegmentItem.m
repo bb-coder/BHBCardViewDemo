@@ -12,7 +12,6 @@
 
 @property (nonatomic,strong) UIView * customView;
 
-@property (nonatomic, strong) UIFont * titleFont;
 
 @end
 
@@ -46,12 +45,29 @@
     return self;
 }
 
+- (void)setTitleColor:(UIColor *)titleColor{
+    _titleColor = titleColor;
+    if ([self.customView isKindOfClass:[UIButton class]]) {
+        UIButton * lbl = (UIButton *)self.customView;
+        [lbl setTitleColor:self.titleColor forState:UIControlStateNormal];
+    }
+}
+
+- (void)setSelectTitleColor:(UIColor *)selectTitleColor{
+    _selectTitleColor = selectTitleColor;
+    if ([self.customView isKindOfClass:[UIButton class]]) {
+        UIButton * lbl = (UIButton *)self.customView;
+        [lbl setTitleColor:self.selectTitleColor forState:UIControlStateSelected];
+    }
+}
+
 - (void)setTitle:(NSString *)title{
     _title = title;
     
     if ([self.customView isKindOfClass:[UIButton class]]) {
         UIButton * lbl = (UIButton *)self.customView;
         [lbl setTitle:title forState:UIControlStateNormal];
+        lbl.titleLabel.font = [UIFont systemFontOfSize:14];
     }
 }
 
@@ -69,6 +85,12 @@
     if([self.customView respondsToSelector:@selector(font)])
     return [(id)self.customView font];
     return nil;
+}
+
+- (void)setTitleFont:(UIFont *)titleFont{
+    if([self.customView respondsToSelector:@selector(setFont:)]){
+        [self.customView performSelector:@selector(setFont:) withObject:titleFont];
+    }
 }
 
 - (CGRect)contentFrame{
